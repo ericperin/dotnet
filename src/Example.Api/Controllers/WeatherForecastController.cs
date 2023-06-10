@@ -21,7 +21,7 @@ public class WeatherForecastController : ControllerBase
     [HttpGet(Name = "GetWeatherForecast")]
     public IEnumerable<WeatherForecast> Get()
     {
-        _logger.LogInformation("It is ok");
+        _logger.LogInformation(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff"));
         return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
