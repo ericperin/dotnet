@@ -1,0 +1,6 @@
+﻿version: "3.9"
+
+services:
+  k6:
+    image: grafana/k6:0.44.1
+    container_name: k6
