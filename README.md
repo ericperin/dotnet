@@ -13,13 +13,13 @@ docker run --rm -i grafana/k6 run --vus 10 --duration 30s - <scripts/basic-test.
 ```
 
 ### Smoke Test
-A Smoke test is the simplest type of performance test. It tests our application under minimal load, for a very short period of time. Its goals are to identify any apparent bugs or regressions. Because of these characteristics, it makes a great candidate to run on every commit or pull request, as we get fast feedback whilst not slowing our development process down too much.
+Is the simplest type of performance test. It tests our application under minimal load, for a very short period of time. Its goals are to identify any apparent bugs or regressions. Because of these characteristics, it makes a great candidate to run on every commit or pull request, as we get fast feedback whilst not slowing our development process down too much.
 ```shell
 docker run --rm -i grafana/k6 run - <scripts/smoke-test.js
 ```
 
 ### Load Test
-A Load Test assesses our system performance under normal and peak conditions, the latter sometimes referred to as “Capacity Testing”. We mentioned that one of the keys to get the best results from performance testing is to know your goals, and this is critical for load testing. We might have 500 average users during the week,  then 2000 average users on the weekend.
+Assesses our system performance under normal and peak conditions, the latter sometimes referred to as “Capacity Testing”. We mentioned that one of the keys to get the best results from performance testing is to know your goals, and this is critical for load testing. We might have 500 average users during the week,  then 2000 average users on the weekend.
 
 For simplicity’s sake, let’s define our “normal” load as 5 users, and “peak” as 20.
 ```shell
