@@ -1,6 +1,11 @@
 # dotnet
 Example of ASP.NET Core project
 
+## Docker
+Run command bellow and access https://localhost:5001/swagger/index.html
+```shell
+docker-compose up -d
+```
 
 ## [k6](https://k6.io/docs/get-started/running-k6/)
 Run k6 with the following command:

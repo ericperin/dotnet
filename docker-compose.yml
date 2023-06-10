@@ -8,8 +8,8 @@ services:
       context: .
       dockerfile: src/Example.Api/Dockerfile
     ports:
-      - "80"
-      - "443"
+      - "5000:80"
+      - "5001:443"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
