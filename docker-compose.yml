@@ -1,6 +1,19 @@
 ﻿version: "3.9"
 
 services:
-  k6:
-    image: grafana/k6:0.44.1
-    container_name: k6
+  api:
+    image: eperin.example.api:0.0.1
+    container_name: api
+    build:
+      context: .
+      dockerfile: src/Example.Api/Dockerfile
+    ports:
+      - "80"
+      - "443"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=password
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+    volumes:
+      - ~/.aspnet/https:/https:ro
