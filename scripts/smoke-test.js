@@ -8,11 +8,10 @@ export const options = {
     duration: '1m',
 
     thresholds: {
-        http_req_duration: ['p(95)<1000']
+        http_req_duration: ['p(95)<200']
     },
 };
 
 export default function () {
     http.get(API_BASE_URL + "/WeatherForecast");
-    sleep(1);
 }
