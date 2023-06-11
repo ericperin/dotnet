@@ -4,6 +4,7 @@ services:
   api:
     image: eperin.example.api:0.0.1
     container_name: api
+    profiles: ["app"]
     build:
       context: .
       dockerfile: src/Example.Api/Dockerfile
@@ -17,3 +18,21 @@ services:
       - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
     volumes:
       - ~/.aspnet/https:/https:ro
+
+  prometheus:
+    image: prom/prometheus:v2.44.0
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./docker/prometheus/config.yml:/etc/prometheus/prometheus.yml
+
+  grafana:
+    image: grafana/grafana:9.5.3
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./docker/.grafana:/var/lib/grafana
+    depends_on: 
+      - prometheus
